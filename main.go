@@ -23,8 +23,12 @@ func main() {
 	config.InitFiberLogger()
 
 	// Init DB
-	db := config.InitPostgres()
-	migration.Migrate(db)
+	dbPostgres := config.InitPostgres()
+	dbMysql := config.InitMysql()
+
+	// Run migrations hanya untuk Postgres (atau MySQL jika mau juga)
+	migration.Migrate(dbPostgres)
+	migration.Migrate(dbMysql)
 
 	// Init Redis & Minio
 	config.InitRedis()
@@ -34,7 +38,7 @@ func main() {
 	config.InitValidator()
 
 	// Dependencies
-	userRepo := repository.NewUserRepository(db)
+	userRepo := repository.NewUserRepository(dbPostgres, dbMysql)
 	userUsecase := usecase.NewUserUsecase(userRepo)
 	userHandler := handler.NewUserHandler(userUsecase)
 
