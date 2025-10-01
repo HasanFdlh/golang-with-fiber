@@ -1,0 +1,4 @@
+[2025-09-25 14:51:09] 400 -     98.4741ms POST /api/auth/register
+[2025-09-25 14:52:11] 400 -     94.3832ms POST /api/auth/register
+[2025-09-25 14:54:59] 400 -     98.4538ms POST /api/auth/register
+[2025-09-25 15:04:44] 400 -       563.8µs POST /api/auth/register
