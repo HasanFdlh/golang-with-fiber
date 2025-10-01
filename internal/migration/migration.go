@@ -12,5 +12,5 @@ func Migrate(db *gorm.DB) {
 	if err != nil {
 		log.Fatalf("❌ Migration failed: %v", err)
 	}
-	log.Println("✅ Migration success")
+	log.Println("Migration success")
 }

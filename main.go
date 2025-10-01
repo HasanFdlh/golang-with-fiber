@@ -4,7 +4,6 @@ import (
 	"log"
 	"ms-golang-fiber/config"
 	"ms-golang-fiber/internal/handler"
-	"ms-golang-fiber/internal/migration"
 	"ms-golang-fiber/internal/repository"
 	"ms-golang-fiber/internal/usecase"
 	"ms-golang-fiber/routes"
@@ -27,8 +26,8 @@ func main() {
 	dbMysql := config.InitMysql()
 
 	// Run migrations hanya untuk Postgres (atau MySQL jika mau juga)
-	migration.Migrate(dbPostgres)
-	migration.Migrate(dbMysql)
+	// migration.Migrate(dbPostgres) // how to use database
+	// migration.Migrate(dbMysql) // how to use database
 
 	// Init Redis & Minio
 	config.InitRedis()

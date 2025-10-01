@@ -56,7 +56,6 @@ func InitMysql() *gorm.DB {
 	sqlDB.SetMaxOpenConns(100)
 	sqlDB.SetConnMaxLifetime(time.Hour)
 
-	log.Println("✅ MySQL connected!")
 	DB = db
 	return db
 }
